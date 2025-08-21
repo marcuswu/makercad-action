@@ -20,7 +20,7 @@ runs:
         # default fetch-depth is insufficent to find previous coverage notes
         fetch-depth: 10
     - name: Build occwrapper
-      run: mkdir build && cd build && cmake .. && sudo make install
+      run: mkdir build && cd build && cmake .. && sudo make install && cd ..
       shell: bash
     - name: Get dependencies
       run: go mod tidy
