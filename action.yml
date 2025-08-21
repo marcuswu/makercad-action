@@ -13,14 +13,9 @@ runs:
     - name: Install OpenCascade
       run: sudo apt-get install -yq libocct-data-exchange-dev
       shell: bash
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        # default fetch-depth is insufficent to find previous coverage notes
-        fetch-depth: 10
     - name: Get dependencies
       run: go mod tidy
       shell: bash
     - name: Run project code
-      run: go run $INPUT_ENTRY
+      run: go run ${{ inputs.entry }}
       shell: bash
