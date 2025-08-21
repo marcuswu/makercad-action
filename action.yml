@@ -23,7 +23,7 @@ runs:
       run: mkdir build && cd build && cmake .. && sudo make install && cd ..
       shell: bash
     - name: Check out model code
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
       with:
         # default fetch-depth is insufficent to find previous coverage notes
         fetch-depth: 10
