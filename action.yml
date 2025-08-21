@@ -11,7 +11,7 @@ runs:
       run: sudo apt-get update
       shell: bash
     - name: Install Dependencies 
-      run: sudo apt-get install -yq libocct-data-exchange-dev cmake cpp
+      run: sudo apt-get install -yq libocct-data-exchange-dev cmake cpp libtbb-dev
       shell: bash
     - name: Get occwrapper
       uses: actions/checkout@v4
