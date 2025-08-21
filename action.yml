@@ -21,6 +21,7 @@ runs:
         fetch-depth: 10
     - name: Build occwrapper
       run: mkdir build && cd build && cmake .. && sudo make install
+      shell: bash
     - name: Get dependencies
       run: go mod tidy
       shell: bash
