@@ -1,0 +1,26 @@
+name: 'MakerCAD build'
+description: 'Build a MakerCAD project'
+inputs:
+  entry:
+    description: The project entry point
+    default: 'main.go'
+runs:
+  using: "composite"
+  steps:
+    - name: Update apt
+      run: sudo apt-get update
+      shell: bash
+    - name: Install OpenCascade
+      run: sudo apt-get install -yq libocct-data-exchange-dev
+      shell: bash
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        # default fetch-depth is insufficent to find previous coverage notes
+        fetch-depth: 10
+    - name: Get dependencies
+      run: go mod tidy
+      shell: bash
+    - name: Run project code
+      run: go run $INPUT_ENTRY
+      shell: bash
