@@ -10,9 +10,17 @@ runs:
     - name: Update apt
       run: sudo apt-get update
       shell: bash
-    - name: Install OpenCascade
-      run: sudo apt-get install -yq libocct-data-exchange-dev
+    - name: Install Dependencies 
+      run: sudo apt-get install -yq libocct-data-exchange-dev cmake cpp
       shell: bash
+    - name: Get occwrapper
+      uses: actions/checkout@v4
+      with:
+        repository: 'marcuswu/occwrapper'
+        # default fetch-depth is insufficent to find previous coverage notes
+        fetch-depth: 10
+    - name: Build occwrapper
+      run: mkdir build && cd build && cmake .. && sudo make install
     - name: Get dependencies
       run: go mod tidy
       shell: bash
