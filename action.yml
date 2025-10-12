@@ -3,7 +3,7 @@ description: 'Build a MakerCAD project'
 inputs:
   entry:
     description: The project entry point
-    default: 'main.go'
+    default: '.'
 runs:
   using: "composite"
   steps:
